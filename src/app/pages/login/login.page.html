@@ -7,7 +7,7 @@
       <div class="logo"></div>
       <h4 no-margin>
         <ion-text color="light" class="fw700">
-          Ionic 4 Start Theme
+          PrestaTech
         </ion-text>
       </h4>
     </div>
@@ -21,7 +21,8 @@
         </ion-label>
         <ion-input color="secondary" type="email" formControlName="email"></ion-input>
       </ion-item>
-      <p ion-text class="text08" *ngIf="onLoginForm.get('email').touched && onLoginForm.get('email').hasError('required')">
+      <p ion-text class="text08"
+        *ngIf="onLoginForm.get('email').touched && onLoginForm.get('email').hasError('required')">
         <ion-text color="warning">
           Required Field
         </ion-text>
@@ -32,13 +33,23 @@
           <ion-icon name="lock" item-start></ion-icon>
           Password
         </ion-label>
-        <ion-input color="secondary" type="password" formControlName="password"></ion-input>
+        <ion-input color="secondary" type="{{type}}" formControlName="password">
+        </ion-input>
+        <ion-button *ngIf="!showPass" color="app" fill="outline" slot="end" shape="round" size="small" (click)="showPassword()">
+          <ion-icon color="light" name="eye"></ion-icon>
+        </ion-button>
+        <ion-button *ngIf="showPass" color="app" fill="outline" slot="end" shape="round" size="small" (click)="showPassword()">
+          <ion-icon color="light" name="eye-off"></ion-icon>
+        </ion-button>
+
+
       </ion-item>
-      <p ion-text color="warning" class="text08" *ngIf="onLoginForm.get('password').touched && onLoginForm.get('password').hasError('required')">
+      <p ion-text color="warning" class="text08"
+        *ngIf="onLoginForm.get('password').touched && onLoginForm.get('password').hasError('required')">
         <ion-text color="warning">
           Required Field
         </ion-text>
-        </p>
+      </p>
     </form>
 
     <p text-right tappable (click)="forgotPass()" class="paz">
@@ -48,7 +59,8 @@
     </p>
 
     <div>
-      <ion-button icon-left size="medium" expand="full" shape="round" color="dark" (click)="goToHome()" [disabled]="!onLoginForm.valid" tappable>
+      <ion-button icon-left size="medium" expand="full" shape="round" color="dark" (click)="goToHome()"
+        [disabled]="!onLoginForm.valid" tappable>
         <ion-icon name="log-in"></ion-icon>
         Signin
       </ion-button>
@@ -59,22 +71,24 @@
         </ion-text>
       </p>
 
-      <ion-grid class="btn-group">
-        <ion-row>
-          <ion-col size="4">
-            <ion-button shape="round" expand="full" color="secondary">
+      <ion-grid>
+        <ion-row no-padding no-marging>
+          <ion-col col-4 no-padding style="text-align:center">
+
+          </ion-col>
+          <ion-col col-4 no-padding style="text-align:center">
+            <ion-button shape="round" color="fb" style="padding-right: 5%;">
               <ion-icon slot="icon-only" name="logo-facebook"></ion-icon>
             </ion-button>
-          </ion-col>
-          <ion-col size="4">
-            <ion-button shape="round" expand="full" color="secondary">
+            <ion-button shape="round" color="twitter" style="padding-right: 5%;">
               <ion-icon slot="icon-only" name="logo-twitter"></ion-icon>
             </ion-button>
-          </ion-col>
-          <ion-col size="4">
-            <ion-button shape="round" expand="full" color="secondary">
+            <ion-button shape="round" color="googlePlus">
               <ion-icon slot="icon-only" name="logo-googleplus"></ion-icon>
             </ion-button>
+          </ion-col>
+          <ion-col col-4 no-padding style="text-align:center">
+
           </ion-col>
         </ion-row>
       </ion-grid>

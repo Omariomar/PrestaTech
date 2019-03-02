@@ -9,6 +9,8 @@ import { NavController, MenuController, ToastController, AlertController, Loadin
 })
 export class LoginPage implements OnInit {
   public onLoginForm: FormGroup;
+  public type = 'password';
+  public showPass = false;
 
   constructor(
     public navCtrl: NavController,
@@ -18,6 +20,16 @@ export class LoginPage implements OnInit {
     public loadingCtrl: LoadingController,
     private formBuilder: FormBuilder
   ) { }
+
+  showPassword() {
+    this.showPass = !this.showPass;
+
+    if (this.showPass) {
+      this.type = 'text';
+    } else {
+      this.type = 'password';
+    }
+  }
 
   ionViewWillEnter() {
     this.menuCtrl.enable(false);

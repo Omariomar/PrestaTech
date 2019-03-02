@@ -2,4 +2,8 @@
     ion-content {
         --background: linear-gradient(-135deg, var(--ion-color-medium), var(--ion-color-light))
     }
+    ion-toolbar {
+        --background: linear-gradient(-135deg, var(--ion-color-dark), var(--ion-color-app))
+    }
+
 }
