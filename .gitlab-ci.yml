@@ -1,4 +1,4 @@
-image: omario36/prestatech:latest
+image: node:latest
 
 stages:
   - deploy
