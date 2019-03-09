@@ -1,0 +1,24 @@
+image: applicazza/ionic:latest
+
+stages:
+  - deploy
+
+cache:
+  untracked: true
+  key: "$CI_PROJECT_ID"
+  paths:
+    - node_modules/
+
+build_browser:
+  stage: deploy
+  only:
+    - master
+  script:
+    - ls
+    - npm i
+    - ionic cordova platform rm browser
+    - ionic cordova platform add browser
+    - ionic cordova build browser
+  artifacts:
+    paths:
+      - platforms/android/build/outputs/apk/
