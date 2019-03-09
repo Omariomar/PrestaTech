@@ -1,4 +1,3 @@
-image: node:latest
 
 stages:
   - build
@@ -11,6 +10,7 @@ cache:
     - node_modules/
 
 job:build_browser:
+  image: node:latest
   stage: build
   only:
     - master
@@ -29,11 +29,13 @@ job:build_browser:
  
 job:test:unit:
   stage: test 
-  script: make test-unit
+  script:
+    - ls
 
 job:test:functional:
   stage: test 
-  script: make test-functional
+  script: 
+    - ls
   
 job:deploy:
   stage: deploy 
