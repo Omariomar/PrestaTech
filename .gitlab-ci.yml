@@ -16,6 +16,7 @@ build_browser:
   script:
     - ls
     - npm i
+    - npm install -g cordova ionic
     - ionic cordova platform rm browser
     - ionic cordova platform add browser
     - ionic cordova build browser
