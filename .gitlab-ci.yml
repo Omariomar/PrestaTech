@@ -1,4 +1,4 @@
-image: applicazza/ionic:latest
+image: omario36/PrestaTech:latest
 
 stages:
   - deploy
