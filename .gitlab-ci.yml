@@ -22,6 +22,6 @@ build_browser:
     - ionic cordova build browser
   artifacts:
     name: 
-      - "Deploy-PrestaTech_${CI_BUILD_REF_NAME}_${CI_BUILD_ID}"
+      Deploy-PrestaTech_${CI_BUILD_REF_NAME}_${CI_BUILD_ID}
     paths:
       - platforms/browser/www/
