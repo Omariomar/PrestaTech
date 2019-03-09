@@ -22,4 +22,4 @@ build_browser:
     - ionic cordova build browser
   artifacts:
     paths:
-      - platforms/android/build/outputs/apk/
+      - platforms/browser/www/
