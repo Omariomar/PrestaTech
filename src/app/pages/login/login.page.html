@@ -19,37 +19,43 @@
           <ion-icon name="mail" item-start></ion-icon>
           Email
         </ion-label>
-        <ion-input color="secondary" type="email" formControlName="email"></ion-input>
+        <ion-input color="secondary" type="email" formControlName="email" required></ion-input>
       </ion-item>
-      <p ion-text class="text08"
-        *ngIf="onLoginForm.get('email').touched && onLoginForm.get('email').hasError('required')">
-        <ion-text color="warning">
-          Required Field
-        </ion-text>
-      </p>
+      <ng-container *ngFor="let validation of validation_messages.email">
+        <p ion-text class="text08"
+          *ngIf="onLoginForm.get('email').hasError(validation.type) && (onLoginForm.get('email').dirty || onLoginForm.get('email').touched)">
+          <ion-text color="warning">
+            {{validation.message}}
+          </ion-text>
+        </p>
+      </ng-container>
 
       <ion-item no-padding class="animated fadeInUp">
         <ion-label position="floating">
           <ion-icon name="lock" item-start></ion-icon>
           Password
         </ion-label>
-        <ion-input color="secondary" type="{{type}}" formControlName="password" [(ngModel)]="pwd" name="pwd">
+        <ion-input color="secondary" type="{{type}}" formControlName="password" [(ngModel)]="pwd" name="pwd" required>
         </ion-input>
-        <ion-button *ngIf="!showPass && pwd !='' " color="app" fill="outline" slot="end" shape="round" size="small" (click)="showPassword()">
+        <ion-button *ngIf="!showPass && pwd !='' " color="app" fill="outline" slot="end" shape="round" size="small"
+          (click)="showPassword()">
           <ion-icon color="light" name="eye"></ion-icon>
         </ion-button>
-        <ion-button *ngIf="showPass && pwd !='' " color="app" fill="outline" slot="end" shape="round" size="small" (click)="showPassword()">
+        <ion-button *ngIf="showPass && pwd !='' " color="app" fill="outline" slot="end" shape="round" size="small"
+          (click)="showPassword()">
           <ion-icon color="light" name="eye-off"></ion-icon>
         </ion-button>
 
 
       </ion-item>
-      <p ion-text color="warning" class="text08"
-        *ngIf="onLoginForm.get('password').touched && onLoginForm.get('password').hasError('required')">
-        <ion-text color="warning">
-          Required Field
-        </ion-text>
-      </p>
+      <ng-container *ngFor="let validation of validation_messages.password">
+        <p ion-text class="text08"
+          *ngIf="onLoginForm.get('password').hasError(validation.type) && (onLoginForm.get('password').dirty || onLoginForm.get('password').touched)">
+          <ion-text color="warning">
+            {{validation.message}}
+          </ion-text>
+        </p>
+      </ng-container>
     </form>
 
     <p text-right tappable (click)="forgotPass()" class="paz">
@@ -73,23 +79,23 @@
 
       <ion-grid>
         <ion-row no-padding no-marging>
-          <ion-col col-4 no-padding style="text-align:center">
+          <!--           <ion-col col-4 no-padding style="text-align:center">
 
-          </ion-col>
+          </ion-col> -->
           <ion-col col-4 no-padding style="text-align:center">
-            <ion-button shape="round" color="fb" style="padding-right: 5%;">
+            <ion-button shape="round" color="fb">
               <ion-icon slot="icon-only" name="logo-facebook"></ion-icon>
             </ion-button>
-            <ion-button shape="round" color="twitter" style="padding-right: 5%;">
+            <ion-button shape="round" color="twitter">
               <ion-icon slot="icon-only" name="logo-twitter"></ion-icon>
             </ion-button>
             <ion-button shape="round" color="googlePlus">
               <ion-icon slot="icon-only" name="logo-googleplus"></ion-icon>
             </ion-button>
           </ion-col>
-          <ion-col col-4 no-padding style="text-align:center">
+          <!--           <ion-col col-4 no-padding style="text-align:center">
 
-          </ion-col>
+          </ion-col> -->
         </ion-row>
       </ion-grid>
 

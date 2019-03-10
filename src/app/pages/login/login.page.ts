@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { NavController, MenuController, ToastController, AlertController, LoadingController } from '@ionic/angular';
 
 @Component({
@@ -12,7 +12,8 @@ export class LoginPage implements OnInit {
   public type = 'password';
   public showPass = false;
 
-  public pwd = '';
+  public pwd: String = '';
+  public validation_messages;
 
   constructor(
     public navCtrl: NavController,
@@ -41,12 +42,32 @@ export class LoginPage implements OnInit {
 
     this.onLoginForm = this.formBuilder.group({
       'email': [null, Validators.compose([
-        Validators.required
+        Validators.required,
+        Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
       ])],
       'password': [null, Validators.compose([
-        Validators.required
+        Validators.required,
+        Validators.minLength(6),
+        Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$') // C azazaza 00
       ])]
     });
+
+    this.validation_messages = {
+      'email': [
+          { type: 'required', message: 'Oops, email is required.' },
+          { type: 'minlength', message: 'Email must be at least 5 characters long.' },
+          { type: 'maxlength', message: 'Email cannot be more than 25 characters long.' },
+          { type: 'pattern', message: 'Oops your email is correct.' },
+          { type: 'validEmail', message: 'Your email has already been taken.' }
+        ],
+        'password': [
+          { type: 'required', message: 'Oops, password is required.' },
+          { type: 'minlength', message: 'Oops, password must be at least 6 characters long.' },
+          { type: 'maxlength', message: 'Oops, password cannot be more than 25 characters long.' },
+          { type: 'pattern', message: 'Oops your password is correct.' },
+        ]
+      
+      }
   }
 
   async forgotPass() {
