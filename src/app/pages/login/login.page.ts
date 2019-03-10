@@ -12,6 +12,8 @@ export class LoginPage implements OnInit {
   public type = 'password';
   public showPass = false;
 
+  public pwd = '';
+
   constructor(
     public navCtrl: NavController,
     public menuCtrl: MenuController,
