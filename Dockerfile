@@ -7,7 +7,7 @@ RUN apt-get update
 
 RUN apt-get install -y curl git software-properties-common unzip
 
-RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_11.x | bash -
 RUN apt-get install -y nodejs
 RUN npm install -g cordova ionic
 

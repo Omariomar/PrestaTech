@@ -5,11 +5,11 @@
     <!-- Logo -->
     <div padding-horizontal text-center class="animated fadeInDown">
       <div class="logo"></div>
-      <h4 no-margin>
+      <!-- <h4 no-margin>
         <ion-text color="light" class="fw700">
           PrestaTech
         </ion-text>
-      </h4>
+      </h4> -->
     </div>
 
     <!-- Login form -->
@@ -33,12 +33,12 @@
           <ion-icon name="lock" item-start></ion-icon>
           Password
         </ion-label>
-        <ion-input color="secondary" type="{{type}}" formControlName="password">
+        <ion-input color="secondary" type="{{type}}" formControlName="password" [(ngModel)]="pwd" name="pwd">
         </ion-input>
-        <ion-button *ngIf="!showPass" color="app" fill="outline" slot="end" shape="round" size="small" (click)="showPassword()">
+        <ion-button *ngIf="!showPass && pwd !='' " color="app" fill="outline" slot="end" shape="round" size="small" (click)="showPassword()">
           <ion-icon color="light" name="eye"></ion-icon>
         </ion-button>
-        <ion-button *ngIf="showPass" color="app" fill="outline" slot="end" shape="round" size="small" (click)="showPassword()">
+        <ion-button *ngIf="showPass && pwd !='' " color="app" fill="outline" slot="end" shape="round" size="small" (click)="showPassword()">
           <ion-icon color="light" name="eye-off"></ion-icon>
         </ion-button>
 
