@@ -58,7 +58,7 @@ export class LoginPage implements OnInit {
           { type: 'minlength', message: 'Email must be at least 5 characters long.' },
           { type: 'maxlength', message: 'Email cannot be more than 25 characters long.' },
           { type: 'pattern', message: 'Oops your email is correct.' },
-          { type: 'validEmail', message: 'Your email has already been taken.' }
+          { type: 'validEmail', message: 'Your this email has already been taken.' }
         ],
         'password': [
           { type: 'required', message: 'Oops, password is required.' },
